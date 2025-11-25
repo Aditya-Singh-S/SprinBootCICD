@@ -22,5 +22,6 @@ phases:
       - cp target/*.jar build-output/app.jar
 
 artifacts:
+  base-directory: build-output
   files:
-    - build-output/app.jar
+    - app.jar
