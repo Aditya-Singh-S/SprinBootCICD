@@ -16,12 +16,11 @@ phases:
   build:
     commands:
       - echo "Building Spring Boot application..."
-      - mvn install -DskipTests
-      - echo "Build completed. Artifact generated in target/"
-      - mkdir -p build-output
-      - cp target/*.jar build-output/app.jar
+      - mvn package -DskipTests
+      - echo "Listing target/"
+      - ls -l target
 
 artifacts:
-  base-directory: build-output
   files:
-    - app.jar
+    - target/*SNAPSHOT.jar
+  discard-paths: yes
