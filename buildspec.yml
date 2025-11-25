@@ -22,5 +22,5 @@ phases:
 
 artifacts:
   files:
-    - target/*SNAPSHOT.jar
+    - target/webApp.jar
   discard-paths: yes
