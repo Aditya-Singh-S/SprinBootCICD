@@ -6,7 +6,7 @@ phases:
       java: corretto17   # Use Amazon Corretto JDK 17 (adjust if needed)
     commands:
       - echo "Installing Maven..."
-      - yum install -y maven
+      - mvn -version
 
   pre_build:
     commands:
@@ -18,16 +18,9 @@ phases:
       - echo "Building Spring Boot application..."
       - mvn package -DskipTests
       - echo "Build completed. Artifact generated in target/"
-
-  post_build:
-    commands:
-      - echo "Preparing application bundle for Elastic Beanstalk..."
-      # Copy the JAR into a deployment directory
-      - mkdir -p deploy
-      - cp target/*.jar deploy/application.jar
-      # Create a zip file for Elastic Beanstalk
-      - cd deploy && zip -r ../springboot-app.zip .
+      - mkdir -p build-output
+      - cp target/*.jar build-output/app.jar
 
 artifacts:
   files:
-    - springboot-app.zip
+    - build-output/app.jar
