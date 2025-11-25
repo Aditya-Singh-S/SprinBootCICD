@@ -16,7 +16,7 @@ phases:
   build:
     commands:
       - echo "Building Spring Boot application..."
-      - mvn package -DskipTests
+      - mvn install -DskipTests
       - echo "Build completed. Artifact generated in target/"
       - mkdir -p build-output
       - cp target/*.jar build-output/app.jar
