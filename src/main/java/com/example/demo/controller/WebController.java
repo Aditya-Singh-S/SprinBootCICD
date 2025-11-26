@@ -8,6 +8,6 @@ public class WebController {
 	
 	@GetMapping("/hello")
 	public String greeting() {
-		return "Congratulations on your onboarding! Mr. Manishkumar Yadav!! Welcome to the Coginizant family...";
+		return "Hello Spring Boot! Updated Version";
 	}
 }
